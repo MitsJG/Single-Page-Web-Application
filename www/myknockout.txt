@@ -1,0 +1,27 @@
+function Mobile() {
+
+    this.firstName = ko.observable("");
+    this.lastName = ko.observable("");
+    this.address = ko.observable("");
+    this.array = ko.observableArray();
+    this.array.push('Name');
+    this.array.push('Surname');
+    this.array.push('Address');
+
+
+
+
+	this.optionValues = ko.observableArray(["","Google Nexus 5","Iphone 6","Samsung Galaxy S5","HTC One M8"]);
+
+	this.selectedValues = ko.observable();
+
+
+
+
+
+
+}
+ko.applyBindings(new Mobile());
+
+
+

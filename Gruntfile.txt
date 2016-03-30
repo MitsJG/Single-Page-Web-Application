@@ -1,18 +1,18 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-	  pkg: grunt.file.readJSON('package.json'),   
-	  less: 
+	  pkg: grunt.file.readJSON('package.json'),
+	  less:
 	  {
-	      development: 
+	      development:
 	      {
-	        options: 
+	        options:
 	        {
 	          compress: true,
 	          yuicompress: true,
 	          optimization: 2
 	        },
-	        files: 
+	        files:
 	        [{
 	  				expand: true,
 	  				cwd: "bower_components/bootstrap/less",
@@ -36,29 +36,29 @@ concat:
 	src: [ 'bower_components/knockoutjs/dist/knockout.js', 'bower_components/d3/d3.js', 'bower_components/jquery/dist/jquery.js', 'bower_components/bootstrap/dist/js/bootstrap.js' ,],
       		dest: 'www/js/libs.js',
 		},
-		
+
     		selffiles: {
       		src: ['www/myknockout.js','www/mgd3.js'],
       		dest: 'www/js/site.js',
     		},
-	
+
 	},
 
-	uglify: 
+	uglify:
 	{
 	  options: {
     	    banner: '/*! Minified File <%= grunt.template.today("dd-mm-yyyy") %> */\n'
   	},
 	  dist: {
 	    files: {
-		'www/js/libs.min.js': 'www/js/libs.js' 
+		'www/js/libs.min.js': 'www/js/libs.js'
 	    }
 	  }
 	},
-	
+
 	jshint: {
 	    files: ['www/js/site.js'],
-	  options: { 
+	  options: {
             force: true,
 	    globals: {
 	      jQuery: true,
@@ -75,11 +75,11 @@ concat:
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  
-  
+
+
   grunt.registerTask('package', 'concat');
   grunt.registerTask('validate', 'jshint');
-  grunt.registerTask('default', ['less','concat','uglify','jshint']);	
+  grunt.registerTask('default', ['less','concat','uglify','jshint']);
   grunt.registerTask('build_all', ['less','concat','uglify','jshint']);
 
 };
